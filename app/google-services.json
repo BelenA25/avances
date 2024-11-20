@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "304649188758",
+    "project_id": "notificacionesmovil-88f90",
+    "storage_bucket": "notificacionesmovil-88f90.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:304649188758:android:8127d5a23d5cbb562e59b7",
+        "android_client_info": {
+          "package_name": "com.example.practicandoexamen"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA58p4vefb96xX60_bIra6hEsQNV4kTTQQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
