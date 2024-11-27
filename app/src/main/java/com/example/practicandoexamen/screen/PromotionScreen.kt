@@ -11,22 +11,26 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 @Composable
-fun PromotionScreen(title: String) {
+fun PromotionScreen(hora1: String,hora2: String, venta1:String, venta2:String) {
     Scaffold() {
             paddingValues -> PromotionContent(modifier = Modifier.padding(paddingValues),
-        title)
+        hora1,hora2,venta1,venta2)
     }
 }
 
 
 @Composable
-fun PromotionContent(modifier: Modifier, titlePromotion: String){
+fun PromotionContent(modifier: Modifier, hora1: String,hora2: String, venta1:String, venta2:String){
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(titlePromotion)
+
+        Text(venta1)
+        Text(venta2)
+        Text(hora1)
+        Text(hora2)
     }
 }
 

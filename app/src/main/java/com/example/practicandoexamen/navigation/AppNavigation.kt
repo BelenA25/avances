@@ -33,13 +33,22 @@ fun AppNavigation() {
     var uuid = UUID.randomUUID().toString()
     // Write a message to the database
     val database = Firebase.database
-    val myRef = database.getReference("app_promotion")
-    var titlePromotion by remember { mutableStateOf("")  }
-    var text = "(${uuid}) Hello, World! This is the best promotion"
-    myRef.setValue(text)
+    val hora1 = database.getReference("hora 1")
+    val hora2 = database.getReference("hora 2")
+    val venta1 = database.getReference("venta 1")
+    val venta2 = database.getReference("venta 2")
+
+    var title_hora1 by remember { mutableStateOf("")  }
+    var title_hora2 by remember { mutableStateOf("")  }
+    var title_venta1 by remember { mutableStateOf("")  }
+    var title_venta2 by remember { mutableStateOf("")  }
+    var text = "12:50"
+//    myRef.setValue(text)
 
 
-    myRef.addValueEventListener( object: ValueEventListener {
+
+
+    hora1.addValueEventListener( object: ValueEventListener {
         override fun onCancelled(p0: DatabaseError) {
             TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
         }
@@ -47,7 +56,40 @@ fun AppNavigation() {
 
         override fun onDataChange(p0: DataSnapshot) {
             val value = p0.getValue(String::class.java)
-            titlePromotion = value.toString()
+            title_hora1 = value.toString()
+        }
+    })
+    hora2.addValueEventListener( object: ValueEventListener {
+        override fun onCancelled(p0: DatabaseError) {
+            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        }
+
+
+        override fun onDataChange(p0: DataSnapshot) {
+            val value = p0.getValue(String::class.java)
+            title_hora2 = value.toString()
+        }
+    })
+    venta1.addValueEventListener( object: ValueEventListener {
+        override fun onCancelled(p0: DatabaseError) {
+            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        }
+
+
+        override fun onDataChange(p0: DataSnapshot) {
+            val value = p0.getValue(String::class.java)
+            title_venta1 = value.toString()
+        }
+    })
+    venta2.addValueEventListener( object: ValueEventListener {
+        override fun onCancelled(p0: DatabaseError) {
+            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        }
+
+
+        override fun onDataChange(p0: DataSnapshot) {
+            val value = p0.getValue(String::class.java)
+            title_venta2 = value.toString()
         }
     })
 
@@ -84,7 +126,7 @@ fun AppNavigation() {
             CinemaMap()
         }
         composable(Screens.PromotionScreen.route) {
-            PromotionScreen(title = titlePromotion)
+            PromotionScreen(hora1 = title_hora1, hora2=title_hora2,venta1=title_venta1,venta2=title_venta2)
         }
 
     }
